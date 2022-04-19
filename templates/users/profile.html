@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}{{ user.username }} | Django Blog{% endblock head_title %}
+
+{% block content %}
+
+{% load static %}
+<script src="{% static 'custom.js' %}"></script>
+
+<div class="container bg-light" style="padding: 10px;">
+        <div class="" >
+          <!--edit button was previously uncommented-->
+          <a class="link blue" href="{% url 'users:edit_profile' %}">
+          <button class="btn btn-secondary btn-sm" style="color: #fff;">Edit your profile</button>
+          </a><hr/>
+           
+ 
+          
+            <div class="box">
+             {% if user.profile.image %}
+              <img class="profileImg"  src="{{ profile.image.url }}" alt="{{ user.username }}">
+              {% else %}
+              <!--<img class="profileImg" src="{% static 'images/avatar.png' %}" alt="{{ user.username }}">
+              -->
+              <div class="fakeImage" id="fakeImage">{{ user.username }}</div>
+              {% endif %}
+            </div>
+              <div class="box">
+                <h2 class="">{{ user.profile.firstName }} {{ user.profile.lastName }}</h2>
+                <h3 class="">({{ user.username }})</h3>
+                  
+                <p id="info" class="card-text">{{ user.profile.about_me }}</p>
+                <h6 id="email" class="text-muted">{{ user.email }}</h3>
+                <p id="info" class="card-text">School: {{ user.profile.school }}</p>
+                <p id="info" class="card-text">Social: <a href="{{ user.profile.links }}">{{ user.profile.links }}</a></p>
+                <p class="card-text text-muted">Last login on: {{ user.last_login }}</p>
+              </div>
+            </div>
+</div>
+          
+        
+<style>
+    .profileImg{
+        height: 200px;
+        width: 200px;
+        border: 2px solid #efefef;
+        border-radius: 50%;
+    }
+    .box{
+        /*height: 400px;*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .box > div{
+        margin: 0 auto;
+    }
+    .fakeImage{
+      height: 200px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #dfdfdf;
+      color: #535353;
+      border-radius: 50%;
+      font-size: 80px;
+    }
+</style>
+<script>
+  
+  let string = document.getElementById("fakeImage");
+  const str = string.innerHTML.toUpperCase();
+  const letters = str.split(" ");
+  console.log("single:" + str[0] + "| username has a length of: " + letters.length)
+
+  if(letters.length == 1){string.innerHTML = str[0]}
+  else{
+   string.innerHTML = letters[0][0] + "." + letters[1][0];
+}
+  console.log("finail user name is:" + string.innerHTML.toUpperCase())
+
+const email = document.getElementById("email");
+const info = document.getElementById("info")
+
+if(email.innerHTML == ""){email.innerHTML = "no registered email yet."}
+if(info.innerHTML == ""){info.innerHTML = "no info yet"}
+  /*const letters = string.innerHTML.split(" ");
+  console.log(string.innerHTML[0])
+  if(letters.length == 1){string.innerHTML = string.innerHTML[0]}
+  else{
+    const newName = letters[0][0] + "." + letters[1][0];
+  console.log(newName);
+  string.innerHTML = newName
+  }*/
+  
+</script>
+
+{% endblock %}

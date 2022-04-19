@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+
+
+<br/></br/>
+
+<div class="container">
+
+   <div class="col-md-8 offset-md-2">
+
+{% if query %}
+
+           <h2>
+
+           {% with results.count as total_results %}
+
+           Found {{ total_results }} result{{ total_results|pluralize }}
+
+           {% endwith %}
+
+           </h2>
+
+   {% for c in results %}
+
+  <a href="{% url 'details' c.slug %}"><h3>{{c.title}}</h3></a>
+
+  <h3>{{c.Book_author}}</h3>
+
+
+   {% empty %}
+
+   <h3>No results found.</h3>
+
+   {% endfor %}
+
+  {% endif %}
+
+        <form action="{% url 'home' %}" class="form-inline" method="get">
+
+        <button type="submit" class="btn btn-primary btn-lg mb-2">Back</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

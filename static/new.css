@@ -1,0 +1,145 @@
+
+
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+}
+.blue{
+    color: #04036e !important;
+}
+
+.customBtn{
+    background: #5a5a5a !important;
+    color: #fff !important;
+}
+.customBtn{
+    background: var(--blue) !important;
+}
+
+
+
+*{
+    box-sizing: border-box;
+}
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: grid;
+    grid-template-areas:"head head"
+                        "main main" 
+                        "footer footer";
+    grid-template-rows: 60px 1fr ;
+    height: 100vh;
+    width: 100%;
+}
+
+header{
+    grid-area: head;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 3px 3px 5px #707070 !important;
+}
+
+main{
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+   /* display: flex;
+    flex-direction: column;
+    justify-content: center;*/
+    
+}
+
+.white{
+    background: #ffffff;
+    
+}
+
+
+
+/*
+.form{
+  grid-area: body;
+ justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  
+}
+.sub{
+    float: left !important;
+    text-align: left;
+    
+}
+ 
+.username, .password, .form-button{
+   height: 50px;
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    background: #efefef;
+}
+
+.form-button{
+    background: var(--blue) !important;
+    color: #fff;
+}
+.form-button:hover{
+    background: #0602ce;
+    color: #fff;
+}
+
+.formInfo{
+    grid-area: foot;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+}
+*/
+
+:root{
+    --blue: #04036e !important;
+    --yellow: #ffbf48;
+    --white: #fdfdfd;
+    --ltblue: #0a07b8;
+}
+
+/*
+body{
+    display: grid;
+    grid-template-areas: "head"
+                          "main"
+                          "foot";
+    grid-template-rows: "50px" "1fr" "200px";
+}
+
+header{
+    grid-area: head;
+    width: 100%;
+    background: red;
+}
+
+
+main{
+    grid-area: main;
+    background: green;
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+    
+}
+*/
+
+footer{
+    width: 100%;
+    grid-area: footer;
+}
+
+

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Edit profile{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="container bg-light">
+  
+      <h2 class="my-5">Edit profile</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="names" style="display: flex; flex-direction: column; padding: 10px; border: 2px solid #efefef;">
+        <!--<div class="form-group">-->
+          {{ form.username.label_tag }}
+          <input type="text" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="id_username"
+            name="username" value='{{ form.username.value|default:user.username }}'>
+         <!--{% if form.username.errors %}
+          <div class="invalid-feedback">{{ form.username.errors }}</div>
+          {% endif %}
+        </div>-->
+        
+        
+        <br/>
+        <!--<div class="form-group">-->
+          {{ form.about_me.label_tag }}
+          <textarea type="text" class="form-control {% if form.about_me.errors %}is-invalid{% endif %}" id="id_about_me"
+            name="about_me" value='{{ form.about_me.value }}'>{{ user.profile.about_me }}</textarea>
+          <!--{% if form.about_me.errors %}
+          <div class="invalid-feedback">{{ form.about_me.errors }}</div>
+          {% endif %}
+        </div>-->
+      </div>
+        
+
+
+        <div class="names" style="display: flex; flex-direction: column; padding: 10px; border: 2px solid #efefef;">
+        <!--<div class="form-group">-->
+          {{ form.firstName.label_tag }}
+          <input type="name" class="form-control {% if form.firstName.errors %}is-invalid{% endif %}" id="id_firstName"
+            name="firstName" value='{{ user.profile.firstName }}'>
+          <!--{% if form.firstName.errors %}
+          <div class="invalid-feedback">{{ form.firstName.errors }}</div>
+          {% endif %}
+        </div>-->
+        
+       <!--<div class="form-group">-->
+          {{ form.lastName.label_tag }}
+          <input type="name" class="form-control {% if form.lastName.errors %}is-invalid{% endif %}" id="id_lastName"
+            name="lastName" value='{{ user.profile.lastName }}'>
+         <!--{% if form.lastName.errors %}
+          <div class="invalid-feedback">{{ form.lastName.errors }}</div>
+          {% endif %}
+        </div>-->
+      </div>
+      
+      <div class="names" style="display: flex; flex-direction: column; padding: 10px; border: 2px solid #efefef;">
+
+       <!--<div class="form-group">-->
+          {{ form.school.label_tag }}
+          <input type="name" class="form-control {% if form.school.errors %}is-invalid{% endif %}" id="id_school"
+            name="school" value='{{ user.profile.school }}'>
+          <!--{% if form.school.errors %}
+          <div class="invalid-feedback">{{ form.school.errors }}</div>
+          {% endif %}
+        </div>-->
+
+
+        <br/>
+        <!--div class="form-group">-->
+          {{ form.links.label_tag }}
+          <textarea type="name" class="form-control {% if form.links.errors %}is-invalid{% endif %}" id="id_links"
+            name="links" value='{{ form.links.value }}'>{{ user.profile.links }}</textarea>
+          <!--{% if form.links.errors %}
+          <div class="invalid-feedback">{{ form.links.errors }}</div>
+          {% endif %}
+        </div>-->
+        </div>
+
+       
+        <!--<div class="form-group">-->
+          {{ form.image.label_tag }}<br>
+          <input type="file" class="{% if form.image.errors %}is-invalid{% endif %}" id="id_image" name="image"
+            accept="image/*" value="{{ profile.image.url }}">
+          <!--{% if form.image.errors %}
+          <div class="invalid-feedback">{{ form.image.errors }}</div>
+          {% endif %}
+        </div>-->
+        
+
+        <a href="{% url 'users:profile' request.user.username %}"></a><button class="btn btn-secondary">Back</button>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+      <br>
+  
+  </div>
+</div>
+<br/>
+<style>
+  .names{
+    margin: 5px;
+  }
+</style>
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/>
+{% load static %}
+
+{% for post in post_list %}
+    <!--books appear here-->
+<div class="card mb-4" style="">
+  <div class="row g-0" style="">
+    <div class="col-md-2" style="">
+      <img src= "{% static 'images/shelfLogo.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">
+          
+    <a style="color:var(--blue)" class="link" href="{% url 'details' post.slug %}" target="_blank">{{ post.title }}</a> <br/> <small>-{{ post.Book_author }}</small>
+    
+    </h5>
+        <p class="card-text">{{ post.description|slice:":50" }}</p>
+        
+        <p class="card-text"><small class="text-muted">
+          <i>- {{ post.uploaded_on }} | 
+            {% if user.is_authenticated %}
+            <a class="link blue" href="{% url 'users:profile' post.uploaded_by  %}">{{ post.uploaded_by }}</a></i></small></p>
+            {% else %}
+            <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a></i></small></p>
+            {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+    <a href="{% url 'post_update' post.slug %}" ><button class="btn btn-secondary">update</button></a>
+    <a href="{% url 'post_delete' post.slug %}" ><button class="btn btn-secondary">delete</button></a>
+
+</div>
+
+
+
+{% endfor %}
+
+
+<div class="container" style="text-align: center;">
+    <h1>You dont have any posts yet!</h1>
+    <small>meaning you have not contributed to the community :(</small>
+<p>why not <a href="{% url 'create' %}">contribute</a> by uploading your first book?</p>
+</div>
+
+
+
+</div>
+
+<br/>
+{% endblock %}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libry</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://www.atlasestateagents.co.uk/css/tether.min.css">
+<script src="http://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+
+
+    
+    {% load static %} 
+    <link rel= "stylesheet" href="{% static 'new.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+</head>
+<body>
+    <header>
+   
+       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/shelf.png' %}" alt="shelf" width="150" height="45">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'uploads' %}">Home</a>
+              </li>
+
+              {% if user.is_authenticated %}
+          
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  User
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'create' %}">upload book</a></li>
+                  <li><a class="dropdown-item" href="{% url 'users:my_post' request.user.username %}">my posts</a></li>
+                  
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">Profile</a></li>
+                  <li><a class="dropdown-item" href="{% url 'users:edit_profile' %}">
+                    settings
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-file-earmark-arrow-up-fill"></i>Games</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link disabled">Report a problem</a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="#" data-bs-toggle="modal" class="nav-link" data-bs-target="#exampleModal">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+                
+              </li>
+              {% endif %}
+              
+            </ul>
+        <form action="{% url 'search' %}" method="get" class="d-flex">
+        <input name="search" type="" class="form-control me-2" type="search" placeholder="name, author, level of book" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+          </div>
+          
+        </div>
+      </nav>
+    
+
+
+
+
+
+
+
+        <!--  <div class="topnav" id="myTopnav">
+            <div class="menu">
+              <a href="{% url 'home' %}"><i class="bi bi-house-door-fill"></i>Home</a>
+                  
+  
+  
+  
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'uploads' %}"><i class="bi bi-file-earmark-arrow-up-fill"></i>Uploads</a>
+                  {% else %}
+                  <script>function check(){alert("please Login!")}</script>
+                  {% endif %}
+  
+  
+  
+                  {% if user.is_authenticated %}
+                  <a href=""><i class="bi bi-person-circle"></i>Profile</a>
+                  {% else %}
+                  <script>function check(){alert("please Login!")}</script>
+                  {% endif %}
+  
+  
+                  {% if user.is_authenticated %}
+                  <a onclick="check()" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: #fff;"><i class="bi bi-box-arrow-right"></i>Logout</a>
+                  {% else %}
+                  <a href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
+                  {% endif %}
+                </div>
+                <div class="menuBtn">
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="bi bi-list"></i></a>
+                </div>
+          </div>-->
+  
+
+
+     <!--       <div class="navDesktop">
+                <a href="{% url 'home' %}"><i class="bi bi-house-door-fill"></i>Home</a>
+                
+
+
+
+                {% if user.is_authenticated %}
+                <a href="#"><i class="bi bi-file-earmark-arrow-up-fill"></i>Upload</a>
+                {% else %}
+                <script>function check(){alert("please Login!")}</script>
+                {% endif %}
+
+
+
+                {% if user.is_authenticated %}
+                <a href=""><i class="bi bi-person-circle"></i>Profile</a>
+                {% else %}
+                <script>function check(){alert("please Login!")}</script>
+                {% endif %}
+
+
+                {% if user.is_authenticated %}
+                <a onclick="check()" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-box-arrow-right"></i>Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right"></i>Log In</a>
+                {% endif %}
+              </div>-->
+        
+
+    </header>
+
+
+        
+      
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> 
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </symbol>
+    </svg>
+ 
+    
+    <main>
+      
+       <br/>
+         
+        
+
+
+       <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Leaving?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure you want to logout? <a style="text-decoration: none" class="alert-link" href="{% url 'logout' %}">Yes</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger"><a style="text-decoration: none; color: #fff;" class="alert-link" href="{% url 'logout' %}">Yes</a></button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+                  
+{% block content %} 
+
+{% endblock %}
+</div>
+    </main>
+
+
+
+
+    
+    <footer style="background: var(--blue); color: #fff; ">
+    <div class="container">
+      
+      <div class="foot">
+        <div>
+          <div class="sec">
+            <img src="{% static 'images/shelf.png' %}" alt="shelf" width="150" height="45">
+<br/>
+              <a>xenithheight@gmail.com</a>
+              <br/>
+              <a>Chat shelf on whatsapp</a>
+          </div>
+          <div class="sec">
+              <h4>QUICK LINKS</h4>
+              <ul>
+              <li>FAQs</li>
+              <li>Hire a Talent</li>
+              </ul>
+          </div>
+          <div class="sec">
+              <h4>COMPANY</h4>
+              <ul>
+              <li>About us</li>
+              <li>Terms of use</li>
+              <li>Privacy Policy</li>
+              </ul>
+          </div>
+        </div>
+        <hr/>
+        <div>
+            &copy; 2022 shelf | All rights reserved
+        </div>
+  </div>
+
+</div>
+    </footer>
+
+
+<style>
+  li{
+    list-style: none;
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+    /*padding: 5px;*/
+    padding-top: 25px;
+    height: auto;
+  }
+  .foot > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    height: 80%;
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .foot{
+    justify-content: center;
+    align-content: center;
+  }
+  .sec > img{
+    background: #fff;
+    padding: 10px;
+    border-radius: 0 20px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .foot > div{
+      flex-direction: column;
+    }
+    .sec{
+      margin-bottom:50px;
+      
+    }
+    .sec > img{
+      margin-bottom: 45px;
+    }
+    
+    
+  }
+
+
+
+</style>
+
+
+
+
+    
+<script>
+    var modal = document.getElementById("modal");
+    //modal.style.display = 'none';
+    function check(){
+        modal.style.display = "block";
+        
+        //setTimeout(function(){
+            modal.style.padding = "15px";
+            modal.style.height = '50px';
+        }//, 600);
+        
+        
+    //}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br/>
+<div class='container'>
+<div class = "alert alert-danger" role="alert" style= "margin: 0 auto;">
+    <h1 style="color:red"> Upload Failed</h1>
+    <div class='uk-divider-icon'></div>
+    <p><strong>Possible cause:</strong> Wrong File Uploaded. 
+        <br/>Files tha can be uploaded include: "PDF", "DOC", "TXT"</p>
+    <button class="btn btn-primary" ><a class="link" href= "{% url 'create' %}">Try Again!</a></button>
+</div>
+</div>
+<div class='uk-margin'></div>
+
+{% endblock %}

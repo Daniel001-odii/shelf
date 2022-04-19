@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<script>
+  const modal = document.getElementById('modal');
+  function success(){
+    modal.style.display = 'block';
+  }
+</script>
+
+
+<!--div id="modal" class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">
+  &times;</span>
+  This is an alert!
+</div>-->
+
+
+<!--<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>-->
+
+<h2>We'll be happy to have you at Shelf!</h2> <h4>Sign Up!</h4>
+<form method="post">
+  <div>
+  {% csrf_token %}
+  {{ form.as_p }}
+    <button class="btn" style="background: var(--yellow);" type="submit" onclick="success()">Signup</button>
+  </div>
+</form>
+<br/>
+<div>
+  <p>have an account already? <a href="{% url 'login' %}">
+    <button class="btn" style="background: var(--blue); color: #fff;">Login</button>
+  </a></p>
+</div>
+<br/>
+<style>
+  form > div{
+    border: 2px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 10px;
+  }
+  form > div > input{
+    border: none;
+    padding: 10px;
+  }
+ 
+</style>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<style>
+
+input{
+    border: none;
+    padding: 10px;
+    background: #dbdbdb;
+    border-radius: 5px;
+}
+
+textarea{
+    border: none;
+    padding: 10px;
+    background: #dbdbdb;
+    border-radius: 5px;
+}
+
+</style>
+
+<br/>
+<div class='card bg-light' style="padding: 10px;">
+<div class = "container" style= "margin: 0 auto;">
+    <h1 class= ''>Edit post</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.errors }}
+        <table id="table" class="">
+         <tbody><tr><th><label for="id_title">Title:</label></th><td><input class='form-control' type="text" name="title" maxlength="100" required="" id="id_title" value="{{ form.title.value }}"></td></tr>
+ <tr><th><label for="id_level">Level:</label></th><td><select class='form-control' name="level" id="id_level">
+   <option value="100" selected="">100 Level</option>
+ 
+   <option value="200">200 Level</option>
+ 
+   <option value="300">300 Level</option>
+ 
+   <option value="400">400 Level</option>
+ 
+   <option value="500">500 Level</option>
+   <option value="000">General</option>
+ 
+ </select></td></tr>
+  <tr><th><label for="id_slug">Slug:</label></th><td><input class='form-control' type="text" name="slug" maxlength="100" required="" id="id_slug" value="{{ form.slug.value }}" readonly></td></tr>
+ <tr><th><label for="id_description">Description:</label></th><td><textarea class='form-control' name="description" cols="40" rows="10" required="" id="id_description">{{ form.description.value }}</textarea></td></tr>
+ <tr><th><label for="id_author">Author:</label></th><td><input class='form-control' type="text" name="Book_author" maxlength="100" required="" id="id_author" value="{{ form.Book_author.value }}"></td></tr>
+  <tr><th><label for="id_uploaded_by">Uploaded by:</label></th><td>
+    {{ form.uploaded_by}}
+ </td></tr>
+ <tr><th><label for="id_book">File:</label></th><td><input class='form-control' type="file" name="file" required="" id="id_file" value="{{ form.file.value }}"></td></tr>
+     </tbody></table>
+     <button class="btn customBtn" >Save</button>
+ 
+ </form>
+</div>
+</div>
+<br/>
+<script>
+
+    /*-------------------function to auitomatically fill 
+    the slug input with the input from title ------*/
+    const master = document.getElementById("id_title");
+    const target = document.querySelector("#id_slug");
+    master.onkeydown = function(){
+        console.log(master.value);
+        target.value = master.value.split(" ").join("-");
+        console.log(master.value + " has changed to: " + target.value);
+    }
+    
+</script>
+
+<!--
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table id='table' class= 'uk-table uk-table-small uk-table-divider'>
+        {{ form.as_table }}
+    </table>
+    <button style='float: right;' type="submit" class="uk-button uk-button-primary">Upload</button>
+
+</form>
+</div>
+<div class='uk-margin'></div>
+-->
+
+{% load static %}
+
+
+
+<script>
+    
+</script>
+{% endblock %}
