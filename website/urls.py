@@ -8,7 +8,8 @@ from .views import PostUpdateView, PostDeleteView
 
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name='home'),
+    path('', views.HomeDetail.as_view(), name='index'),
+    path('home/', views.PostList.as_view(), name='home'),
     path('create/', views.create_post, name = 'create'),
     path('search/', views.search, name='search'),
     #path('post/<str:id>', views.PostDetail, name='details'),

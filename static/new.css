@@ -48,7 +48,8 @@ main{
     grid-area: main;
     max-width: 1000px;
     margin: 0 auto;
-   /* display: flex;
+    /*margin-top: 80px;
+    display: flex;
     flex-direction: column;
     justify-content: center;*/
     

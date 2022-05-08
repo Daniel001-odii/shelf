@@ -1,5 +1,5 @@
 
-
+{% load static %}
 
 .link{
     text-decoration: none;
@@ -51,6 +51,7 @@ main{
    /* display: flex;
     flex-direction: column;
     justify-content: center;*/
+
     
 }
 

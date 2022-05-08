@@ -13,11 +13,11 @@ from django.contrib import messages
 
 # Create your views here.
 
-'''
-class Home(generic.ListView):
+
+class HomeDetail(generic.ListView):
     queryset = False
-    template_name = 'home.html'
-'''
+    template_name = 'index.html'
+
 
 '''class userProfile(generic.ListView):
     queryset = False
