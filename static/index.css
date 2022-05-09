@@ -1,14 +1,5 @@
-.round{
-    /* background: #00000052;
-     border-radius: 50%;*/
-     
- }
- .slide{
-     height: 200px !important;
-    // border: 2px solid red !important;
- }
+
  .second{
-    
      justify-content:flex-start;
  }
  .btnArrays{
@@ -16,11 +7,7 @@
      justify-content: space-between;
      align-items: center;
      width: 250px;
-     
-     //border: 2px dotted #ffffff;
      padding: 0px;
-     
-     //backdrop-filter: blur(30px);
  }
  .mybtn{
      width: 120px;
@@ -29,14 +16,10 @@
      padding: 15px;
      border-radius: 30px;
      border: 2px solid #000000;
-     //border: 3px solid #fff;
      background: none;
-     //font-weight: bold;
      transition-duration: 0.6s;
  }
- /*.red{
-    background: #ff0000;
- }*/
+ 
 .red:hover{
   background: #ff0000;
   border: 2px solid red;
@@ -57,49 +40,76 @@
 .in{
  padding: 15px;
  font-size: 15px;
- //height: 50px;
- //width: 300px;
  border: none;
- //border-radius: 30px;
 }
 
 
- body, html {
-height: 100%;
-margin: 0;
-}
 
-.bg {
+
+.bger {
  margin: 0 auto;
 /* The image used */
-background-image: url("{% static 'images/background.png' %}");
 background-attachment: fixed;
 /* Full height */
- height: 100%; 
-max-width: 1000px;
+height: 50vh; 
 /* Center and scale the image nicely */
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
  display: flex;
  flex-direction: column;
- justify-content: center;
+ justify-content: center; 
+
 }
+
+/*{
+  background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100%;
+        width: 100%;
+        color: #eeeeee;
+        text-align: center;
+        display: table;
+
+}*/
+
+
+.wrapper {
+  /*height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;*/
+ 
+}
+
+
+.lined{
+  background: var(--blue);
+  //backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+}
+
 .box{
  padding: 30px;
  display: flex;
  flex-direction: column;
- justify-content:left;
+ justify-content:center;
  align-items: flex-start;
- //width: 100%;
- //height: 100%;
- //background: linear-gradient(to right, #04036e, rgba(8, 8, 8, 0));
+ backdrop-filter: blur(10px);
+ height: 100vh;
+ background: none;
 }
 .text{
 line-height: 90%;
  width: 300px;
  font-weight: bolder;
- font-size: 60px;
+ font-size: 50px;
  color: #000000;
  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
  
@@ -116,42 +126,62 @@ line-height: 90%;
 
 
 /*------------------------------------*/
-
-:root{
-    --blue: #04036e !important;
-    --yellow: #ffbf48;
-    --white: #fdfdfd;
-    --ltblue: #0a07b8;
+*{
+  box-sizing: border-box;
 }
 
 
+html, body{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: grid;
+  grid-template-areas:"head head head"
+                      "main main main" 
+                      "footer footer footer";
+  grid-template-rows: 60px 1fr auto;
+  height: 100vh;
+  width: 100%;
+}
+
+header{
+  grid-area: head;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px #707070 !important;
+}
+
+main{
+  width: 100%; /*-------caused a hella problem for me---------*/
+  grid-area: main;
+  max-width: 1000px;
+  margin: 0 auto;
+  /*margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;*/
+  
+}
 footer{
     width: 100%;
     grid-area: footer;
-}
-
-
-
-
-
-  li{
-    list-style: none;
-  }
-  footer{
     display: flex;
     flex-direction: column;
     /*padding: 5px;*/
     padding-top: 25px;
     height: auto;
-    background-image: url("{% static 'images/rough.png' %}");
-  }
+}
+
+
   .foot > div{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    height: 80%;
+    //height: 80%;
     font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -159,11 +189,7 @@ footer{
     justify-content: center;
     align-content: center;
   }
-  .sec > img{
-    background: #fff;
-    padding: 10px;
-    border-radius: 0 20px;
-  }
+  
   .socials{
     width: 100px;
     font-size: 20px;
@@ -179,7 +205,6 @@ footer{
     }
     .sec{
       margin-bottom:50px;
-      
     }
     .sec > ul{
         text-align: center;
@@ -187,6 +212,17 @@ footer{
     .sec > img{
       margin-bottom: 45px;
     }
-    
+    .socials{
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0 auto;
+    }
   }
 
+  :root{
+    --blue: #04036e !important;
+    --yellow: #ffbf48;
+    --white: #fdfdfd;
+    --ltblue: #0a07b8;
+}

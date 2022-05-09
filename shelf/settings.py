@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!ozbvud(_!%!-)mqtd3*+t^sfv80o=1blld((t)a#pgls=$zzp
 DEBUG = True
 
 ALLOWED_HOSTS = ['projshelf.herokuapp.com',]
-#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 
 # Application definition
