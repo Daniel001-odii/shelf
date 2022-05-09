@@ -17,7 +17,7 @@
            
  
           
-            <div class="box">
+            <div class="ibox">
              {% if user.profile.image %}
               <img class="profileImg"  src="{{ profile.image.url }}" alt="{{ user.username }}">
               {% else %}
@@ -26,7 +26,7 @@
               <div class="fakeImage" id="fakeImage">{{ user.username }}</div>
               {% endif %}
             </div>
-              <div class="box">
+              <div class="ibox">
                 <h2 class="">{{ user.profile.firstName }} {{ user.profile.lastName }}</h2>
                 <h3 class="">({{ user.username }})</h3>
                   
@@ -47,13 +47,13 @@
         border: 2px solid #efefef;
         border-radius: 50%;
     }
-    .box{
+    .ibox{
         /*height: 400px;*/
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .box > div{
+    .ibox > div{
         margin: 0 auto;
     }
     .fakeImage{
