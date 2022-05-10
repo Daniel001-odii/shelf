@@ -59,7 +59,11 @@
  </div>
 
 
-
+<style>
+  .bg1{
+    background-image: url("{% static 'images/background0.png' %}");
+  }
+</style>
 
 
 <!--
@@ -81,27 +85,32 @@
 
 
 
-<div class="text-center" style="padding: 20px;">
+<div class="text-center bg1" style="padding: 20px;">
   {% if user.is_authenticated %}
     <h1 class="display-5">Hi {{ user.username }},<br/>
   {% endif %}
   <h1 class="display-5">Welcome to Shelf! <br/>
     <small style="font-size: 30px;" class="text-muted">
-      we have lots of free books for you uploaded by our users. 
-      we grow by uploading and contributing to the community<hr/>you can become a contributor too!</small></h1>
+   Check out Books Available based on recent uploads.</small></h1>
 </div>
 
 <div class="container bg-light" style="padding: 20px; max-width: 1000px; margin: 0 auto;">
   
-  
+  {% if post_list|length <= 0 %}
+<div class="container" style="text-align: center;">
+    <h1 style="color: red;">There are no books uploaded yet!</h1>
+    <small>meaning you have not contributed to the community :(</small>
+<p>why not <a href="{% url 'create' %}">contribute</a> by uploading your first book?</p>
+</div>
+{% endif %}
   
     {% for post in post_list %}
     
     <!--books appear here-->
-<div class="card mb-4" style="">
+<div class="card mb-4 reveal fade-top" style="">
   <div class="row g-0" style="">
     <div class="col-md-2" style="">
-      <img src= "{% static 'images/PDF.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image">
+      <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{% static 'images/PDF.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -113,14 +122,24 @@
         <p class="card-text">{{ post.description|slice:":50" }}</p>
         
         <p class="card-text"><small class="text-muted">
-          <p class="badge">
-          <i>- {{ post.uploaded_on }} | 
+          <p class="badg">
+          - {{ post.uploaded_on }} | 
             {% if user.is_authenticated %}
-            <a class="link blue" href="{% url 'users:profile' post.uploaded_by  %}">{{ post.uploaded_by }}</a></i></small></p>
+            <span style="background: var(--yellow); padding: 10px; border-radius: 30px;">
+            <a class="link blue" href="{% url 'users:profile' post.uploaded_by  %}">{{ post.uploaded_by }}</a>
+          <span style="background: #efefef; padding: 5px; border-radius: 50px; height: 20px; width: 20px;">!</span>
+            </span>
+            </p>
+           
             {% else %}
+          
+          </small>
+          </p>
+         
             <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a></i></small></p>
             {% endif %}
-          </p>
+          
+         
       </div>
     </div>
   </div>

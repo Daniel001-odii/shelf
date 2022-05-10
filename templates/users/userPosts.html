@@ -4,13 +4,23 @@
 
 <br/>
 {% load static %}
+<div style="margin: 0 auto; color: var(--blue);">Your Posts.</h1>
+{% if post_list|length <= 0 %}
+<div class="container" style="text-align: center;">
+    <h1>You dont have any posts yet!</h1>
+    <small>meaning you have not contributed to the community :(</small>
+<p>why not <a href="{% url 'create' %}">contribute</a> by uploading your first book?</p>
+</div>
+{% endif %}
+
 
 {% for post in post_list %}
+
     <!--books appear here-->
-<div class="card mb-4" style="">
-  <div class="row g-0" style="">
+<div class="card mb-4" style=" ">
+  <div class="" style="display: flex; flex-direction: row;">
     <div class="col-md-2" style="">
-      <img src= "{% static 'images/shelfLogo.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image">
+      <img src= "{% static 'images/PDF.png' %}" style="border: 2px solid #efefef; margin: 0 auto; height: 200px; width: 150px;" class="img-fluid  rounded-start" alt="Book image">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -28,26 +38,19 @@
             {% else %}
             <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a></i></small></p>
             {% endif %}
-      </div>
+      
+      <a href="{% url 'post_update' post.slug %}" ><button class="btn" style="background: var(--yellow);">Edit</button></a>
+    <a href="{% url 'post_delete' post.slug %}" ><button class="btn btn-danger">delete</button></a>
+</div>
     </div>
   </div>
 </div>
-<div>
-    <a href="{% url 'post_update' post.slug %}" ><button class="btn btn-secondary">update</button></a>
-    <a href="{% url 'post_delete' post.slug %}" ><button class="btn btn-secondary">delete</button></a>
 
-</div>
 
 
 
 {% endfor %}
 
-
-<div class="container" style="text-align: center;">
-    <h1>You dont have any posts yet!</h1>
-    <small>meaning you have not contributed to the community :(</small>
-<p>why not <a href="{% url 'create' %}">contribute</a> by uploading your first book?</p>
-</div>
 
 
 

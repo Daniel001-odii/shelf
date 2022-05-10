@@ -88,12 +88,12 @@ height: 50vh;
 
 .lined{
   background: var(--blue);
-  //backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 30px;
 }
+
 
 .box{
  padding: 30px;
