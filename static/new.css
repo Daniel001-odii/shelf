@@ -1,5 +1,26 @@
 
 
+ 
+.resp{
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  /*border-left: 2px solid #efefef;
+  border-right: 2px solid #efefef;*/
+}
+.add{
+  padding: 10px !important;
+}
+.topError > ul {
+  list-style-type: none;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 
 .link{
     text-decoration: none;
@@ -22,6 +43,8 @@
 *{
     box-sizing: border-box;
 }
+
+
 html, body{
     padding: 0;
     margin: 0;

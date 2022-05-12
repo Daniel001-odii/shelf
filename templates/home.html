@@ -54,10 +54,6 @@
 
 <br/>
 
-<div class="cd" style="max-width: 300px; margin: 0 auto; padding: 10px;">
-  
- </div>
-
 
 <style>
   .bg1{
@@ -66,46 +62,48 @@
 </style>
 
 
-<!--
- <form action="{% url 'search' %}" class="form-inline" method="get">
 
-  <div class="form-group mb-8">
-       <h1>{% if type %}{{ type.name }}{% else %} List of Books {% endif %}</h1>
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-   <label for="" class="sr-only">search</label>
-   <input name="search" type="" class="form-control" id="" placeholder="Keyword">
-   </div>
-   <button type="submit" class="btn btn-success btn-lg mb-2">Search</button>
-</form>
--->
+
+
+<style>
+  .text-center{
+    border-radius: 0px;
+background: var(--blue);
+  }
+</style>
 
 
 
 
-
-
-<div class="text-center bg1" style="padding: 20px;">
+<div class="text-center bg1" style="padding: 20px; text-align: left !important;color: #fff;">
   {% if user.is_authenticated %}
-    <h1 class="display-5">Hi {{ user.username }},<br/>
+    <h1 class="display-5">Hi {{ user.username }},</h1>
   {% endif %}
-  <h1 class="display-5">Welcome to Shelf! <br/>
-    <small style="font-size: 30px;" class="text-muted">
-   Check out Books Available based on recent uploads.</small></h1>
-</div>
+  <h1 class="display-5">Welcome to Shelf!</h1>
+  <span style="font-size: 18px; text-align: left; width: 100%; background: #0c0a92; padding: 8px;" class="">
+  Check out Books Available based on recent uploads.
+   </span>
+  </div>
+<!---->
+<br/>
+<br/>
+  
 
-<div class="container bg-light" style="padding: 20px; max-width: 1000px; margin: 0 auto;">
-  
+  <!--a display if theres no uploads available-->
   {% if post_list|length <= 0 %}
-<div class="container" style="text-align: center;">
-    <h1 style="color: red;">There are no books uploaded yet!</h1>
-    <small>meaning you have not contributed to the community :(</small>
+  <div class="container bg-light" style="padding: 20px; max-width: 1000px; text-align: center; margin: 0 auto;">
+    <h1 style="color: red;">Ohh no our shelf is Empty!</h1>
+    <small>you have not contributed to the community :(</small>
 <p>why not <a href="{% url 'create' %}">contribute</a> by uploading your first book?</p>
-</div>
-{% endif %}
+  </div>
+<!---->
+  {% endif %}
   
+
+
+
+
     {% for post in post_list %}
-    
     <!--books appear here-->
 <div class="card mb-4 reveal fade-top" style="">
   <div class="row g-0" style="">
@@ -121,7 +119,8 @@
         </h5>
         <p class="card-text">{{ post.description|slice:":50" }}</p>
         
-        <p class="card-text"><small class="text-muted">
+        <p class="card-text">
+        
           <p class="badg">
           - {{ post.uploaded_on }} | 
             {% if user.is_authenticated %}
@@ -133,10 +132,10 @@
            
             {% else %}
           
-          </small>
+          
           </p>
          
-            <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a></i></small></p>
+            <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a>
             {% endif %}
           
          
@@ -148,22 +147,12 @@
   //$('.carousel').carousel();
   console.log("{{ post.uploaded_by }}")
   console.log("{{ request.user.username }}")
-  </script>
+</script>
 
 {% endfor %}
-</div>
+
 
 <br/>
 
 
-<script>
-//$('.carousel').carousel();
-console.log("{{ post.uploaded_by }}")
-</script>
-
-<!--  <p><a href="{% url 'logout' %}">Log Out</a></p>
-
-  <p>You are not logged in!</p>
-  <a style="background:var(--blue); padding: 10px" href="{% url 'login' %}">Log In</a>
--->
 {% endblock %}

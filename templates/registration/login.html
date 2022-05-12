@@ -6,10 +6,10 @@
 
 
 <br/>
- <div class="container bg-light add"> 
+ <div class="container add"> 
   <div class="resp">
  
-  <h2>Hey, Welcome back! <br/>Sign in</h2>
+  <h2>Sign in.</h2>
 
 <form method="post">
   
@@ -21,16 +21,27 @@
    
 {% endif %}
    
-    
-    <div class="form-group">
+<br/>
+<div class="input-group">
+  <input id="username" required="" type="text" type="username" name="username" autocomplete="off" class="input">
+  <label class="user-label">Username</label>
+</div>
+<br/>
+<div class="input-group">
+  <input id="password" required="" type="text" type="password" name="password" autocomplete="off" class="input">
+  <label class="user-label">Password</label>
+</div>
+
+
+<!--<div class="form-group">
       <label for="username">username</label>
-        <input id="username" class="form-control" placeholder="Username" type="username" name="username" required>
+        <input  class="form-control" placeholder="Username"  required>
     </div>
     <br/>
     <div class="form-group"></div>
         <label for="password">password</label>  
-        <input  id="password" class="form-control" placeholder="password" type="password" name="password" required>
-           
+        <input   class="form-control" placeholder="password"  required>
+  -->         
     <!--<div class="form-group form-check">
           <input class="form-check-input" type="checkbox">Remember me</span>
     </div>-->
@@ -43,9 +54,9 @@
 <br/>
       
 
-        <a  style="color: var(--yellow)" href="{% url 'users:password_reset' %}">Forgot password</a><hr/>
+        <a  style="color: var(--blue); text-decoration: none;" href="{% url 'users:password_reset' %}">Forgot password</a><hr/>
             <p>Don't have an account yet? 
-            <a class="link white" style="border: 2px solid var(--blue);color: var(--blue); padding: 10px;" href="{% url 'signup' %}">Join Us</a></p>
+            <a class="link white" style="background: var(--yellow); color: #fff; padding: 10px;" href="{% url 'signup' %}">Sign Up</a></p>
             
     
   </form>
@@ -55,24 +66,43 @@
 
 
 <style>
-  .resp{
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-    /*border-left: 2px solid #efefef;
-    border-right: 2px solid #efefef;*/
-  }
-  .add{
-    padding: 10px !important;
-  }
-  .topError > ul {
-    list-style-type: none;
-  }
-  form{
-    display: flex;
-    flex-direction: column;
-  }
-  </style>
+
+.input-group {
+ position: relative;
+ width: 100%;
+}
+
+.input {
+  width: 100%;
+ border: solid 1.5px #9e9e9e;
+ background: none;
+ padding: 1em;
+ font-size: 15px;
+ color: var(--blue);
+ transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.user-label {
+ position: absolute;
+ left: 15px;
+ color: #303030;
+ pointer-events: none;
+ transform: translateY(1rem);
+ transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, input:valid {
+ outline: none;
+ border: 1.5px solid var(--blue);
+}
+
+.input:focus ~ label, input:valid ~ label {
+ transform: translateY(-50%) scale(0.8);
+ background-color: #fff;
+ padding: 0 .2em;
+ color: var(--blue);
+}
+</style>
   
 
 {% endblock %}
