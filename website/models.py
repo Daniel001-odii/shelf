@@ -25,7 +25,7 @@ lvl = (
 
 class Post(models.Model):
     title = models.CharField(max_length = 100, unique = True)
-    level = models.IntegerField(choices = lvl, default = 000)
+    #level = models.IntegerField(choices = lvl, default = 000)
     #school = models.CharField(max_length = 100, unique = False)#should not be unique
     #course_code = models.CharField(max_length = 20, unique = False)#sgould not be unique
     slug = models.SlugField(max_length = 100, unique = True)
@@ -37,6 +37,7 @@ class Post(models.Model):
     uploaded_by = models.ForeignKey(User, related_name="uploaded_by", on_delete = models.CASCADE,)
 
     file = models.FileField(upload_to = "books/%y/%m/%d")
+    thumbnail = models.FileField(upload_to= "thumb/%y/%m/%d", default="")
 	
 	
     class Meta:

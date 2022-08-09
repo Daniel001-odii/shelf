@@ -108,7 +108,7 @@ background: var(--blue);
 <div class="card mb-4" style="">
   <div class="row g-0" style="">
     <div class="col-md-2" style="">
-      <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{% static 'images/PDF.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
+      <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{{ post.thumbnail.url }}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -121,14 +121,14 @@ background: var(--blue);
         
         <p class="card-text">
         
-          <p class="badg">
-          - {{ post.uploaded_on }} | 
+          <!-- <p class="badg">
+          - {{ post.uploaded_on|slice:":15"}} | 
             {% if user.is_authenticated %}
             <span style="background: var(--yellow); padding: 10px; border-radius: 30px;">
             <a class="link blue" href="{% url 'users:profile' post.uploaded_by  %}">{{ post.uploaded_by }}</a>
           <span style="background: #efefef; padding: 5px; border-radius: 50px; height: 20px; width: 20px;">!</span>
             </span>
-            </p>
+            </p> -->
            
             {% else %}
           

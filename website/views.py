@@ -41,7 +41,7 @@ class PostDetail(generic.DetailView):
 #----------update and make changes to a post ---------------------#
 class PostUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Post
-    fields = ["title", "level", "description", "Book_author", "file"]
+    fields = ["title", "description", "Book_author", "file", "thumbnail"]
     #template_name = 'pmaker/create.html'
 
     def get_context_data(self, **kwargs):

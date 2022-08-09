@@ -8,12 +8,12 @@ class post_form(forms.ModelForm):
         
         fields = [
             'title',
-            'level',
             'slug',
             'description',
             'Book_author',
             'uploaded_by',
             'file',
+            'thumbnail',
         ]
         #*9-exclude = ['slug']
         #exclude = ["uploaded_by"]
