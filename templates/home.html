@@ -110,13 +110,13 @@ background: var(--blue);
 <div class="card mb-4 my-post" style="">
   <div class="row g-0" style="">
     <div class="col-md-2" style="">
-      <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{{ post.thumbnail.url }}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
+      <a href="{% url 'details' post.slug %}"><img src= "{{ post.thumbnail.url }}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
           
-        <a style="color:var(--blue)" class="link" href="{% url 'details' post.slug %}" target="_blank">{{ post.title }}</a> <br/> <small>-{{ post.Book_author }}</small>
+        <a style="color:var(--blue)" class="link" href="{% url 'details' post.slug %}">{{ post.title }}</a> <br/> <small>-{{ post.Book_author }}</small>
         
         </h5>
         <p class="card-text">{{ post.description|slice:":350" }}</p>
