@@ -89,7 +89,7 @@
 
 
         <div class="box bg1">
-          <div class="blur reveal fade-left">
+          <div class="blur">
                     <div class="text" style="text-align: left;" >
                         Making reading competitive.</div>
                         <p class="card-text">Discover books of different genres, <br/>
@@ -181,7 +181,7 @@
       <hr style="color: #fff;"/>
     <div class="section2">
         <div class="myCard reveal fade-top" style="background: red; animation-duration: 1s;">
-            <div class="icon1"><i class="bi bi-award"></i></div>
+            <div class="my-icon icon1"><i class="bi bi-award"></i></div>
             <h3>We Award our readers</h3>
             <span>
               At shelf we encourage every users effort and contribution to the community
@@ -190,7 +190,7 @@
             </span>
         </div>
         <div class="myCard reveal fade-top" style="background: var(--yellow); animation-duration: 1.5s;">
-            <div class="icon2"><i class="bi bi-people-fill"></i></div>
+            <div class="my-icon icon2"><i class="bi bi-people-fill"></i></div>
             <h3>We make everyone a Team</h3>
             <span>
                  we build teams among users by making profiles from which you can communicate
@@ -198,7 +198,7 @@
             </span>
         </div>
         <div class="myCard reveal fade-top" style="background: var(--blue); animation-duration: 2s;">
-            <div class="icon3"><i class="bi bi-book-half"></i></div>
+            <div class="my-icon icon3"><i class="bi bi-book-half"></i></div>
             <h3>We ensure Quality</h3>
             <span>
                At shelf we make sure every single upload has been verified by majority votes, thereby
@@ -212,17 +212,20 @@
 
 <div class="lined" style="background: none !important">
   <div class="reveal fade-left" style="color: var(--blue); text-align:center;margin: 0 auto; font-size: 40px; font-weight: bold;
-   padding: 5px; text-shadow: 2px 2px 2px var(--yellow);">What users are saying</div>
+   padding: 5px; text-shadow: 2px 2px 2px var(--yellow);">Read What our users say</div>
    
  <div class="section2">
     
      <div class="myCard reveal fade-top" style="background: var(--yellow); animation-duration: 1.5s;">
-         <div class="icon2"><i class="bi bi-people-fill"></i></div>
-         <h3>We make everyone a Team</h3>
+         
+         <h3>John Doe</h3>
          <span>
-              we build teams among users by making profiles from which you can communicate
-            through quick links to personal social accounts and more.
+             after times and times of looking for a good platform to download books
+             and build my reading skill, i found shelf and since then, its been the best!
          </span>
+         <div class="my-icon bg1 box" style="border-radius: 50%; border: 5px solid red; background: #fff;">.</div>
+         <img src="{% static 'images/shelf.png' %}" class="my-icon bg1 box" alt="shelf" width="150" height="150">
+
      </div>
   
  </div>
@@ -371,8 +374,16 @@
     .icon1{color: red; background:  #fcacac;}
     .icon2{color: var(--yellow); background: #fae6a5;}
     .icon3{color: var(--blue); background: #a8a8fa;}
-    .myCard > div{
-        /*height: 50px;*/
+
+    .roundIcon{
+      height: 100px; width: 100px; 
+      border-radius: 50px; 
+      border: 6px solid var(--blue);
+      background-image: url("{% static 'images/avatar.png' %}");
+      }
+
+    .my-icon{
+        height: 50px;
         width: 50px;
         padding: 10px;
         font-size: 30px;

@@ -85,50 +85,6 @@ main{
 
 
 
-/*
-.form{
-  grid-area: body;
- justify-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  
-}
-.sub{
-    float: left !important;
-    text-align: left;
-    
-}
- 
-.username, .password, .form-button{
-   height: 50px;
-    width: 90%;
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    background: #efefef;
-}
-
-.form-button{
-    background: var(--blue) !important;
-    color: #fff;
-}
-.form-button:hover{
-    background: #0602ce;
-    color: #fff;
-}
-
-.formInfo{
-    grid-area: foot;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    
-    text-align: center;
-}
-*/
-
 :root{
     --blue: #04036e !important;
     --yellow: #ffbf48;
@@ -136,30 +92,6 @@ main{
     --ltblue: #0a07b8;
 }
 
-/*
-body{
-    display: grid;
-    grid-template-areas: "head"
-                          "main"
-                          "foot";
-    grid-template-rows: "50px" "1fr" "200px";
-}
-
-header{
-    grid-area: head;
-    width: 100%;
-    background: red;
-}
-
-
-main{
-    grid-area: main;
-    background: green;
-    border-left: 1px solid #efefef;
-    border-right: 1px solid #efefef;
-    
-}
-*/
 
 footer{
     width: 100%;

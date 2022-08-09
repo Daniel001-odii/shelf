@@ -105,7 +105,7 @@ background: var(--blue);
 
     {% for post in post_list %}
     <!--books appear here-->
-<div class="card mb-4 reveal fade-top" style="">
+<div class="card mb-4" style="">
   <div class="row g-0" style="">
     <div class="col-md-2" style="">
       <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{% static 'images/PDF.png' %}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
