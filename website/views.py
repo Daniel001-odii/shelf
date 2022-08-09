@@ -118,5 +118,5 @@ def search(request):
         query = request.GET.get('search')
         if query == '':
             query = 'None'
-        results = Post.objects.filter(Q(title__icontains=query) | Q(Book_author__icontains=query) | Q(level__icontains=query) )
+        results = Post.objects.filter(Q(title__icontains=query) | Q(Book_author__icontains=query))
     return render(request, 'search.html', {'query': query, 'results': results})
