@@ -117,7 +117,7 @@ background: var(--blue);
         <a style="color:var(--blue)" class="link" href="{% url 'details' post.slug %}" target="_blank">{{ post.title }}</a> <br/> <small>-{{ post.Book_author }}</small>
         
         </h5>
-        <p class="card-text">{{ post.description|slice:":500" }}</p>
+        <p class="card-text">{{ post.description|slice:":350" }}</p>
         
         <p class="card-text">
         
