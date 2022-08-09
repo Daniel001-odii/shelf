@@ -75,17 +75,19 @@ background: var(--blue);
 
 
 
-<div class="text-center bg1" style="padding: 20px; text-align: left !important;color: #fff;">
+<div class="text-center bg1" style="padding: 20px; border-radius: 5px; text-align: left !important;color: #fff;">
   {% if user.is_authenticated %}
     <h1 class="display-5">Hi {{ user.username }},</h1>
+    <h1 class="display-5">Youre Logged in!</h1>
+  {% else %}
+    <h1 class="display-5">Youre not logged in!</h1>
   {% endif %}
-  <h1 class="display-5">Welcome to Shelf!</h1>
-  <span style="font-size: 18px; text-align: left; width: 100%; background: #0c0a92; padding: 8px;" class="">
-  Check out Books Available based on recent uploads.
-   </span>
   </div>
 <!---->
 <br/>
+<span style="font-size: 18px; text-align: left; width: 100%; background: var(--yellow); border-radius: 5px; color: #000000; padding: 8px;" class="">
+  Available Books based on recent uploads<br/>
+   </span>
 <br/>
   
 
@@ -105,7 +107,7 @@ background: var(--blue);
 
     {% for post in post_list %}
     <!--books appear here-->
-<div class="card mb-4" style="">
+<div class="card mb-4 my-post" style="">
   <div class="row g-0" style="">
     <div class="col-md-2" style="">
       <a href="{% url 'details' post.slug %}" target="_blank"><img src= "{{ post.thumbnail.url }}" style="border: 2px solid #efefef; margin: 0 auto;" class="img-fluid img-thumbnail rounded-start" alt="Book image"></a>
@@ -119,30 +121,29 @@ background: var(--blue);
         </h5>
         <p class="card-text">{{ post.description|slice:":350" }}</p>
         
-        <p class="card-text">
+        <div class="card-text">
+         <a href="{% url 'details' post.slug %}"><span class="btn small"><i class="bi bi-file-earmark-arrow-down-fill"></i>Download</span></a>
+         <button class="btn" disabled><!--<i class="bi bi-eye-fill"></i>-->{{ post.views }} views</span>
+         <button class="btn" disabled><i class="bi bi-share-fill"></i>Share</span>
+        </div>
         
-          <!-- <p class="badg">
-          - {{ post.uploaded_on|slice:":15"}} | 
-            {% if user.is_authenticated %}
-            <span style="background: var(--yellow); padding: 10px; border-radius: 30px;">
-            <a class="link blue" href="{% url 'users:profile' post.uploaded_by  %}">{{ post.uploaded_by }}</a>
-          <span style="background: #efefef; padding: 5px; border-radius: 50px; height: 20px; width: 20px;">!</span>
-            </span>
-            </p> -->
-           
-            {% else %}
-          
-          
-          </p>
          
-            <a class="link blue" href="{% url 'login'  %}">{{ post.uploaded_by }}</a>
-            {% endif %}
-          
          
       </div>
     </div>
   </div>
 </div>
+
+
+<style>
+  .my-post:hover{
+    border: 1px solid var(--blue);
+    box-shadow: 0px 6px 10px #efefef;
+  }
+  .card-footer:hover{
+    color: var(--blue);
+  }
+</style>
 <script>
   //$('.carousel').carousel();
   console.log("{{ post.uploaded_by }}")

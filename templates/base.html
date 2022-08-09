@@ -48,6 +48,7 @@
               </li>
 
               {% if user.is_authenticated %}
+             
           
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -87,7 +88,9 @@
         <input name="search" type="" class="form-control me-2" type="search" placeholder="name, author, level of book" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+        
           </div>
+        
           
         </div>
       </nav>
@@ -192,7 +195,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <p>Are you sure you want to logout? <a style="text-decoration: none" class="alert-link" href="{% url 'logout' %}">Yes</a>
+            <p>Are you sure you want to logout? 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

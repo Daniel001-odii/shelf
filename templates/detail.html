@@ -45,10 +45,12 @@
      <p class="lead"> {{post.description}} </p>
      <p class="lead">uploaded: {{post.uploaded_on}} | {{ post.uploaded_by }} </p>
      <div class="form-control">
-     <a href="{{ post.file.url }}"><button class="btn btn-primary btn-sm">preview</button></a>
-     <a class="" href="{{ post.file.url }}" download><button class="btn btn-secondary btn-sm">download</button></a>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <a href="{{ post.file.url }}" target="_blank"><button class="btn" style="background: var(--blue); color: #fff;">preview</button></a>
+     <a class="" href="{{ post.file.url }}" download><button class="btn" style="background: var(--yellow); color: #fff;">download</button></a>
+     <button class="btn" disabled><!--<i class="bi bi-eye-fill"></i>-->{{ post.views }} views</span>   
+     
+     <div class="btn-group dropright">
+          <button type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000; color: #fff;">
             share
           </button>
           <div class="dropdown-menu">
@@ -65,7 +67,7 @@
   <br/>
   <br/>
   <form action="{% url 'home' %}" class="form-inline" method="get">
-    <button type="submit" class="btn btn-primary btn-sm">Back</button>
+    <button type="submit" class="btn btn-primary btn-sm" style="background: #000; color: #fff;">Back</button>
   </form>
   <br/>
   <br/>

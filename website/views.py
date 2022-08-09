@@ -16,7 +16,7 @@ from django.contrib import messages
 
 class HomeDetail(generic.ListView):
     queryset = False
-    template_name = 'index.html'
+    template_name = 'home.html'
 
 
 '''class userProfile(generic.ListView):
@@ -28,12 +28,23 @@ class HomeDetail(generic.ListView):
 class PostList(generic.ListView):
     queryset = Post.objects.order_by('-uploaded_on')
     template_name = 'home.html'
+    
 
 
 
 
 class PostDetail(generic.DetailView):
+    
+    # def bookPost(request, slug):
+    #     post = Post.objects.filter(slug=slug).first()
+    #     post.views=post.views +1
+    #     post.save()
     model = Post
+    def get_object(self):
+        obj = super().get_object()
+        obj.views += 1
+        obj.save()
+        return obj
     template_name = 'detail.html'
 
 

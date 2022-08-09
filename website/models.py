@@ -35,7 +35,7 @@ class Post(models.Model):
     #rating = models.IntegerField( validators=[MinValueValidator(1), MaxValueValidator(5)])
     #uploaded_by = models.ForeignKey(User, on_delete = models.CASCADE,related_name='blog_posts')
     uploaded_by = models.ForeignKey(User, related_name="uploaded_by", on_delete = models.CASCADE,)
-
+    views = models.IntegerField(default=0)
     file = models.FileField(upload_to = "books/%y/%m/%d")
     thumbnail = models.FileField(upload_to= "thumb/%y/%m/%d", default="")
 	
